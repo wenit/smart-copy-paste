@@ -49,12 +49,14 @@ const buildCopyCutCommand = (history: History, converter: Converter,isCut = fals
   return () => {
     vscode.commands.executeCommand(`editor.action.${editorCommand}`);
     // Grab ths text from each selection
-    // const selectedText1 = getSelectedText();
+    const selectedTextArr = getSelectedText();
+    let data: any = selectedTextArr?.join("\n");
+
     // if (selectedText) {
     //   history.add(selectedText);
     // }
     history.clear();
-    const selectedText=converter.convert();
+    const selectedText=converter.convertByString(data);
     for (let index = selectedText.length-1; index >=0; index--) {
       const element = selectedText[index];
       if (element) {

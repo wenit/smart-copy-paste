@@ -6,10 +6,14 @@
 	"engines": {
 		"vscode": "^1.47.0"
 	},
+	"repository": {
+		"url": "https://github.com/wenit/smart-copy-paste"
+	},
 	"publisher": "wenit",
 	"categories": [
 		"Other"
 	],
+	"icon": "icon.png",
 	"activationEvents": [
 		"*"
 	],

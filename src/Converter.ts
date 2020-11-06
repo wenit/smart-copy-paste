@@ -38,6 +38,29 @@ export default class Converter {
         return outArr;
     }
 
+    public convertByString(selectedText:string): string[] {
+        let outArr: string[] = [];
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return outArr;
+        }
+        let firstContent =selectedText;
+        if (firstContent === "") {
+            return outArr;
+        }
+        outArr.push(firstContent);
+        let input=firstContent;
+        while (true) {
+            let output=this.inconvert(input);
+            if (firstContent === output) {
+                break;
+            }else{
+                input=output;
+                outArr.push(output);
+            }
+        }
+        return outArr;
+    }
 
     public inconvert(item: string): string {
         let arr: string[] = [];
